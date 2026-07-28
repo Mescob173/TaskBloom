@@ -106,7 +106,7 @@ const totalTasks = todos.length;
   {filteredTodos.length === 0 ? (
     <div className="empty-state">
       <h2>🌸</h2>
-      <h3>No tasks yet!</h3>
+      <h3>You're all caught up! 🎉</h3>
       <p>Add your first task to get started.</p>
     </div>
   ) : (
