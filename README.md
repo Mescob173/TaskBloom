@@ -56,6 +56,9 @@ The project is deployed using **GitHub Pages**.
 - Dark mode
 - User authentication
 
+## Acknowledgements
+
+This project was developed as part of a React course project to practice building single-page applications with React.
 
 ## License
 
