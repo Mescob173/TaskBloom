@@ -14,7 +14,7 @@ const [submitted, setSubmitted] = useState(false);
     document.title = "TaskBloom | Contact";
   }, []);
 
-  // Handles form submission
+  // Handles form submission.
 function handleChange(event) {
     setForm({
       ...form,
