@@ -2,11 +2,11 @@
 
 TaskBloom is a modern React task management application that helps users stay organized by creating, completing, filtering, and deleting tasks through a clean and responsive interface.
 
-## 🚀 Live Demo
+## Live Demo
 
 https://mescob173.github.io/TaskBloom/
 
-## ✨ Features
+## Features
 
 - ➕ Add new tasks
 - ✅ Mark tasks as completed
@@ -17,7 +17,7 @@ https://mescob173.github.io/TaskBloom/
 - 📱 Responsive design
 - 🎨 Modern user interface
 
-## 🛠 Built With
+## Built With
 
 - React
 - React Router DOM
@@ -25,7 +25,7 @@ https://mescob173.github.io/TaskBloom/
 - HTML5
 - CSS3
 
-## 📦 Installation
+## Installation
 
 Clone the repository:
 
@@ -45,10 +45,10 @@ Run the application:
 npm start
 ```
 
-## 🌐 Deployment
+## Deployment
 
 The project is deployed using **GitHub Pages**.
 
-## 👩‍💻 Author
+## Author
 
 **Manuela Escobar**
