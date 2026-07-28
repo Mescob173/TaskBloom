@@ -49,6 +49,18 @@ npm start
 
 The project is deployed using **GitHub Pages**.
 
+## Future Improvements
+
+- Edit existing tasks
+- Add task due dates
+- Dark mode
+- User authentication
+
+
+## License
+
+This project was created for educational purposes.
+
 ## Author
 
 **Manuela Escobar**
