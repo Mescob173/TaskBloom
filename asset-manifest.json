@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/TaskBloom/static/css/main.0924094c.css",
+    "main.js": "/TaskBloom/static/js/main.b6460681.js",
+    "static/js/453.55008f00.chunk.js": "/TaskBloom/static/js/453.55008f00.chunk.js",
+    "index.html": "/TaskBloom/index.html",
+    "main.0924094c.css.map": "/TaskBloom/static/css/main.0924094c.css.map",
+    "main.b6460681.js.map": "/TaskBloom/static/js/main.b6460681.js.map",
+    "453.55008f00.chunk.js.map": "/TaskBloom/static/js/453.55008f00.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0924094c.css",
+    "static/js/main.b6460681.js"
+  ]
+}
