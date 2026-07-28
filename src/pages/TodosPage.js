@@ -66,7 +66,7 @@ const totalTasks = todos.length;
 <div className="input-group">
   <input
   type="text"
-  placeholder="Enter a new task..."
+  placeholder="What would you like to accomplish today?"
   value={newTodo}
   onChange={(e) => setNewTodo(e.target.value)}
   onKeyDown={(e) => {
