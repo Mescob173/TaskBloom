@@ -311,6 +311,8 @@ textarea {
   text-align: center;
   color: #777;
   font-size: 14px;
+  letter-spacing: 0.5px;
+opacity: 0.9;
 }
 
 .empty-state {
