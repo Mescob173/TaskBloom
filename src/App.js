@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from "./components/Navbar";
+import TodosPage from "./pages/TodosPage";
+import ContactPage from "./pages/ContactPage";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
   return (
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  <Navbar />
+  <Routes>
+  <Route path="/" element={<Navigate to="/todos" replace />} />
+  <Route path="/todos" element={<TodosPage />} />
+  <Route path="/contact" element={<ContactPage />} />
+</Routes>
+<footer className="footer">
+  <p>© 2026 TaskBloom | Built with React</p>
+</footer>
     </div>
   );
 }
