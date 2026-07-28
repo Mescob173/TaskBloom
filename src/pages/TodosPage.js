@@ -17,7 +17,7 @@ useEffect(() => {
   localStorage.setItem("todos", JSON.stringify(todos));
 }, [todos]);
 
-// Adds a new task to the list
+// Adds a new task to the list.
 function addTodo() {
   if (newTodo.trim() === "") return;
 
