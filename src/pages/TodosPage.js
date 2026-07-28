@@ -1,13 +1,23 @@
 import { useEffect, useState } from "react";
 
 function TodosPage() {
-  const [todos, setTodos] = useState([]);
+ 
+ // Loads saved tasks from localStorage when the app starts
+    const [todos, setTodos] = useState(() => {
+    const savedTodos = localStorage.getItem("todos");
+
+  return savedTodos ? JSON.parse(savedTodos) : [];
+});
   const [newTodo, setNewTodo] = useState("");
   const [filter, setFilter] = useState("all");
 useEffect(() => {
   document.title = "TaskBloom | Todos";
 }, []);
+useEffect(() => {
+  localStorage.setItem("todos", JSON.stringify(todos));
+}, [todos]);
 
+// Adds a new task to the list
 function addTodo() {
   if (newTodo.trim() === "") return;
 
@@ -21,6 +31,8 @@ function addTodo() {
 
   setNewTodo("");
 }
+
+// Marks a task as completed or incomplete
 function toggleTodo(index) {
   const updatedTodos = [...todos];
 
@@ -28,6 +40,8 @@ function toggleTodo(index) {
 
   setTodos(updatedTodos);
 }
+
+// Deletes a task from the list
 function deleteTodo(index) {
   const updatedTodos = todos.filter((todo, todoIndex) => todoIndex !== index);
   setTodos(updatedTodos);
@@ -44,18 +58,23 @@ const totalTasks = todos.length;
   return (
     
 <div>
-  <div className="hero">
-  <h2>📝 My Tasks</h2>
-  <p>Bloom one task at a time. Stay organized and productive.</p>
+        <div className="hero">
+        <h2>📝 My Tasks</h2>
+         <p>Bloom one task at a time. Stay organized and productive.</p>
 </div>
 
-  <div className="input-group">
+<div className="input-group">
   <input
-    type="text"
-    placeholder="Enter a new task..."
-    value={newTodo}
-    onChange={(e) => setNewTodo(e.target.value)}
-  />
+  type="text"
+  placeholder="Enter a new task..."
+  value={newTodo}
+  onChange={(e) => setNewTodo(e.target.value)}
+  onKeyDown={(e) => {
+    if (e.key === "Enter") {
+      addTodo();
+    }
+  }}
+/>
 
   <button onClick={addTodo}>➕ Add Task</button>
 </div>
@@ -84,32 +103,40 @@ const totalTasks = todos.length;
 </div>
 
   <ul>
-  {filteredTodos.map((todo, index) => (
-   <li key={index}>
-  <div className="todo-left">
-    <input
-      type="checkbox"
-      checked={todo.completed}
-      onChange={() => toggleTodo(index)}
-    />
+  {filteredTodos.length === 0 ? (
+    <div className="empty-state">
+      <h2>🌸</h2>
+      <h3>No tasks yet!</h3>
+      <p>Add your first task to get started.</p>
+    </div>
+  ) : (
+    filteredTodos.map((todo, index) => (
+      <li key={index}>
+        <div className="todo-left">
+          <input
+            type="checkbox"
+            checked={todo.completed}
+            onChange={() => toggleTodo(index)}
+          />
 
-    <span
-      style={{
-        textDecoration: todo.completed ? "line-through" : "none",
-      }}
-    >
-      {todo.text}
-    </span>
-  </div>
+          <span
+            style={{
+              textDecoration: todo.completed ? "line-through" : "none",
+            }}
+          >
+            {todo.text}
+          </span>
+        </div>
 
-  <button
-    className="delete-btn"
-    onClick={() => deleteTodo(index)}
-  >
-    🗑 Delete
-  </button>
-</li>
-  ))}
+        <button
+          className="delete-btn"
+          onClick={() => deleteTodo(index)}
+        >
+          🗑 Delete
+        </button>
+      </li>
+    ))
+  )}
 </ul>
 
 <div className="summary-bar">

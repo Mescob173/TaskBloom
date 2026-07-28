@@ -8,12 +8,14 @@ function ContactPage() {
     comments: "",
     
   });
+const [submitted, setSubmitted] = useState(false);
 
    useEffect(() => {
     document.title = "TaskBloom | Contact";
   }, []);
-  
-  function handleChange(event) {
+
+  // Handles form submission
+function handleChange(event) {
     setForm({
       ...form,
       [event.target.name]: event.target.value,
@@ -21,19 +23,31 @@ function ContactPage() {
   }
 
   function handleSubmit(event) {
-    event.preventDefault();
-    alert("Thank you for your message!");
-  }
+  event.preventDefault();
+
+  setSubmitted(true);
+
+  setForm({
+    firstName: "",
+    lastName: "",
+    email: "",
+    comments: "",
+  });
+}
 
 return (
   <div>
-    <div className="hero">
-      <h2>✉ Contact Us</h2>
-      <p>Have questions or feedback? We'd love to hear from you.</p>
-    </div>
-
-    <form onSubmit={handleSubmit}>
-      <input
+  <div className="hero">
+    <h2>✉ Contact Us</h2>
+    <p>Have questions or feedback? We'd love to hear from you.</p>
+</div>
+{submitted && (
+  <div className="success-message">
+    ✅ Thank you! Your message has been sent successfully.
+  </div>
+)}
+  <form onSubmit={handleSubmit}>
+    <input
         type="text"
         name="firstName"
         placeholder="First Name"
@@ -64,8 +78,8 @@ return (
         onChange={handleChange}
       />
 
-      <button type="submit">📨 Send Message</button>
-    </form>
+    <button type="submit">📨 Send Message</button>
+  </form>
   </div>
 );
 }
